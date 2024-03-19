@@ -180,5 +180,7 @@ const desenvolvedor01 = new Desenvolvedor
         new Date('07-02-2001'),
         ['Rua dos bobos',10],
         'Atendente',
-        ['JavaScript', 'c#']
+        ['JavaScript', 'c#'] 
     )
+
+desenvolvedor01.mostrarDadosDesenvolvedor()
