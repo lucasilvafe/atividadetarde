@@ -1,3 +1,4 @@
+//Classe Projeto
 class Projeto {
     constructor
         (
@@ -11,7 +12,7 @@ class Projeto {
 
         ) { }
     mostrarDadosProjeto() {
-        console.log('-------------------------------')
+        console.log('---------------Projeto----------------')
         console.log(`Nome do projeto: ${this.nome}`);
         console.log(`Descrição: ${this.descricao}`);
         console.log(`Tecnologia: ${this.tecnologia}`);
@@ -45,7 +46,7 @@ const projeto2 = new Projeto
         false,
         'Eduanea'
     )
-    projeto2.mostrarDadosProjeto()
+projeto2.mostrarDadosProjeto()
 
 class Tarefa {
     constructor
@@ -58,16 +59,17 @@ class Tarefa {
             protected status_execucao: boolean,
             protected status_concluido: boolean
         ) { }
-        mostrarDadosTarefa() {
-            console.log('-------------------------------')
-            console.log(`Nome da tarefa: ${this.nome_tarefa}`);
-            console.log(`Descrição: ${this.descricao}`);
-            console.log(`Desenvolvedor responsavel: ${this.desenvolvedor_responsavel}`);
-            console.log(`Prazo: ${this.prazo.toLocaleDateString('pt-br')}`);
-            console.log(`Pendente: ${this.status_pendente}`);
-            console.log(`Execução: ${this.status_execucao}`);
-            console.log(`Concluido: ${this.status_concluido}`)
-        }
+
+    mostrarDadosTarefa() {
+        console.log('--------------Tarefa-----------------')
+        console.log(`Nome da tarefa: ${this.nome_tarefa}`);
+        console.log(`Descrição: ${this.descricao}`);
+        console.log(`Desenvolvedor responsavel: ${this.desenvolvedor_responsavel}`);
+        console.log(`Prazo: ${this.prazo.toLocaleDateString('pt-br')}`);
+        console.log(`Pendente: ${this.status_pendente}`);
+        console.log(`Execução: ${this.status_execucao}`);
+        console.log(`Concluido: ${this.status_concluido}`)
+    }
 }
 
 const tarefa01 = new Tarefa
@@ -80,21 +82,94 @@ const tarefa01 = new Tarefa
         true,
         false
     )
-    tarefa01.mostrarDadosTarefa()
+tarefa01.mostrarDadosTarefa()
 class Equipe extends Projeto {
-
+    constructor
+        (
+            nome: string,
+            descricao: string,
+            tecnologia: string,
+            data_inicio: Date,
+            data_termino: Date,
+            status_concluido: boolean,
+            desenvolvedor_responsavel: string,
+            protected nome_equipe: string,
+            protected lider_equipe: string,
+            protected memboros: string[]
+        ) { super(nome, descricao, tecnologia, data_inicio, data_termino, status_concluido, desenvolvedor_responsavel) }
+        mostrarDadosEquipe()
+        {
+            console.log('--------------Equipe-----------------')
+            console.log(`Nome da equipe: ${this.nome_equipe}`);
+            console.log(`Lider: ${this.lider_equipe}`);
+            console.log(`Membros: ${this.memboros}`);
+        }
 }
+const equipe1 = new Equipe
+    (
+        '',
+        '',
+        '',
+        new Date('07-03-2000'),
+        new Date('09-03-2023'),
+        true,
+        '',
+        'Equipe01',
+        'Luzia Valentina',
+        ['Amanda Gomes','Isabelly Letícia']
+    )
 
+    equipe1.mostrarDadosEquipe()
 class Funcionario {
     constructor
         (
-
-    ) { }
+            protected nome: string,
+            protected cpf: string,
+            protected data_nascimento: Date,
+            protected endereco: any[],
+            protected cargo: string,
+            protected genero?: string
+        ) { }
+        mostrarDadosFuncionario()
+        {
+            console.log('----------Funcionario-----------')
+            console.log(`Funcionario: ${this.nome}`)
+            console.log(`CPF: ${this.cpf}`)
+            console.log(`Data de nascimento: ${this.data_nascimento.toLocaleDateString('pt-br')}`)
+            console.log(`Endereço: ${this.endereco}`)
+            console.log(`Cargo: ${this.cargo}`)
+        }
 }
 
-class Desenvolvedor {
+const funcionario01 = new Funcionario
+    (
+        'Allana Nair Teixeira',
+        '99659189451',
+        new Date('07-02-2003'),
+        ['Rua dos bobos',10],
+        'Atendente'
+    )
+funcionario01.mostrarDadosFuncionario()
+
+class Desenvolvedor extends Funcionario {
     constructor
         (
+            nome: string,
+            cpf: string,
+            data_nascimento: Date,
+            endereco: any[],
+            cargo: string,
+            protected linguagem: string[]
 
-    ) { }
+        ) { super(nome, cpf, data_nascimento, endereco, cargo) }
+        mostrarDadosDesenvolvedor()
+        {
+            console.log('----------Desenvolvedor-----------')
+            console.log(`Funcionario: ${this.nome}`)
+            console.log(`CPF: ${this.cpf}`)
+            console.log(`Data de nascimento: ${this.data_nascimento.toLocaleDateString('pt-br')}`)
+            console.log(`Endereço: ${this.endereco}`)
+            console.log(`Cargo: ${this.cargo}`)
+            console.log(`Linguagem: ${this.linguagem}`)
+        }
 }
