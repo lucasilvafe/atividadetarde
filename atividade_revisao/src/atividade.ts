@@ -172,4 +172,13 @@ class Desenvolvedor extends Funcionario {
             console.log(`Cargo: ${this.cargo}`)
             console.log(`Linguagem: ${this.linguagem}`)
         }
-}
+} 
+const desenvolvedor01 = new Desenvolvedor
+    (
+        'José Filipe Augusto Rezende',
+        '53924273405',
+        new Date('07-02-2001'),
+        ['Rua dos bobos',10],
+        'Atendente',
+        ['JavaScript', 'c#']
+    )
